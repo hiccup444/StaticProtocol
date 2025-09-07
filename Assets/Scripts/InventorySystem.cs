@@ -17,7 +17,8 @@ public class InventorySystem : MonoBehaviour
     // Inventory data
     private Item[] inventory;
     private int[] itemCounts;
-    
+    private Oxygen playerOxygen;
+
     // Properties
     public int InventorySize => inventorySize;
     public int SelectedSlot => selectedSlot;
@@ -28,7 +29,10 @@ public class InventorySystem : MonoBehaviour
     private void Awake()
     {
         InitializeInventory();
+
+        playerOxygen = GetComponent<Oxygen>();
     }
+
     
     private void InitializeInventory()
     {
@@ -106,27 +110,66 @@ public class InventorySystem : MonoBehaviour
         OnItemRemoved?.Invoke(slotIndex, inventory[slotIndex]);
         return true;
     }
-    
+
     public bool UseItem(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= inventorySize)
             return false;
-            
-        if (inventory[slotIndex].IsEmpty())
+
+        Item item = inventory[slotIndex];
+
+
+        if (item.IsEmpty())
             return false;
-            
-        if (!inventory[slotIndex].isConsumable)
+
+        if (!item.isConsumable)
+        {
+            Debug.Log($"{item.itemName} is not consumable!");
             return false;
-            
-        // Use the item
-        OnItemUsed?.Invoke(slotIndex, inventory[slotIndex]);
-        
+        }
+
+        switch (item.id)
+        {
+            case 0: // Debug Item
+                Debug.Log("Debug Item was used.");
+                break;
+
+            case 1: // Oxygen Tank
+                playerOxygen.currentOxygen = playerOxygen.currentOxygen + 25;
+                break;
+
+            default:
+                Debug.Log($"Used {item.itemName}, but no special behavior defined.");
+                break;
+        }
+
+        // Trigger the event
+        OnItemUsed?.Invoke(slotIndex, item);
+
         // Remove one from stack
         RemoveItem(slotIndex, 1);
-        
+
+        Debug.Log($"Successfully used {item.itemName}");
         return true;
     }
-    
+
+    // Example helper methods
+    private void HealPlayer(int amount)
+    {
+        // Replace this with your player's health system
+        Debug.Log($"Healing player for {amount} HP!");
+    }
+
+    private void EquipWeapon(Item weapon)
+    {
+        Debug.Log($"Equipping {weapon.itemName}!");
+    }
+
+    private void CraftWoodItem()
+    {
+        Debug.Log("Crafting with wood!");
+    }
+
     public void SelectSlot(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= inventorySize)

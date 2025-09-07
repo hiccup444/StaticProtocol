@@ -20,4 +20,8 @@ public class ItemData : ScriptableObject
     public int value = 1;
     public bool isConsumable = false;
     public bool isEquippable = false;
+
+    [Header("Consumable Effects")]
+    [Tooltip("Amount of oxygen this item restores when used")]
+    public float oxygenRestore = 0f;
 }
