@@ -48,12 +48,11 @@ public class Oxygen : MonoBehaviour
     {
         if (helmetHandler == null) return 0;
 
-        // currentDurability goes from 3 -> 2 -> 1 -> 0
         switch (helmetHandler.currentDurability)
         {
-            case 3:
-            case 2: return 5f; // light cracks
-            case 1: return 10f; // medium cracks
+            case 3: return 0f;   // no cracks
+            case 2: return 5f;   // light cracks
+            case 1: return 10f;  // medium cracks
             case 0: return 20f;  // broken
             default: return 0f;
         }

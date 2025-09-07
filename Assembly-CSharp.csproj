@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\HelmetHandler.cs" />
     <Compile Include="Assets\Scripts\OxygenBarUI.cs" />
+    <Compile Include="Assets\Scripts\FlickerLight.cs" />
     <Compile Include="Assets\Scripts\ItemData.cs" />
     <Compile Include="Assets\Scripts\ItemType.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
