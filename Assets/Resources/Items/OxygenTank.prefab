@@ -65,7 +65,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f300fb3715123e14c932a82be5d8f162, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7577525
+      value: -1.6746359
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f300fb3715123e14c932a82be5d8f162, type: 3}
       propertyPath: m_LocalPosition.y
@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f300fb3715123e14c932a82be5d8f162, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.0294824
+      value: -6.371517
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f300fb3715123e14c932a82be5d8f162, type: 3}
       propertyPath: m_LocalRotation.w
@@ -124,9 +124,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f300fb3715123e14c932a82be5d8f162, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2134816460918908330}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f300fb3715123e14c932a82be5d8f162, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1100796904733465714}
   m_SourcePrefab: {fileID: 100100000, guid: f300fb3715123e14c932a82be5d8f162, type: 3}
 --- !u!4 &4735569635770148331 stripped
 Transform:
@@ -151,7 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: a1d9531a527aaba48931341774225d61, type: 2}
-  pickupCollider: {fileID: 83426504492111924}
   showPickupPrompt: 1
   pickupText: Press E to pickup
 --- !u!136 &2134816460918908330
@@ -177,26 +173,3 @@ CapsuleCollider:
   m_Height: 0.58806634
   m_Direction: 2
   m_Center: {x: -2.1316251e-16, y: -0.020000003, z: -0.13143605}
---- !u!136 &1100796904733465714
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5400888882344820561}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.25
-  m_Height: 0.97
-  m_Direction: 2
-  m_Center: {x: -2.131625e-16, y: -0.02, z: -0.131436}

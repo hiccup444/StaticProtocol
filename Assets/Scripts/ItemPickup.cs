@@ -9,97 +9,93 @@ public class ItemPickup : MonoBehaviour
     public bool showPickupPrompt = true;
     public string pickupText = "Press E to pickup";
 
-    private bool isPlayerNearby = false;
     private InventorySystem playerInventory;
+
+    private static ItemPickup activePickup;
+    private static Camera playerCamera;
+
+    // Settings
+    public static float pickupRange = 5f;       // How far player can pick up
+    public static float pickupRadius = 1.0f;    // Radius around crosshair
 
     private void Start()
     {
-        // Auto-assign ItemData if missing
         if (itemData == null)
         {
             itemData = GetComponent<ItemData>();
         }
 
-        // Find or ensure we have a trigger collider on THIS object
-        SetupTriggerCollider();
-    }
+        if (playerCamera == null)
+            playerCamera = Camera.main;
 
-    private void SetupTriggerCollider()
-    {
-        Collider[] colliders = GetComponents<Collider>();
-        bool hasTrigger = false;
-
-        // Check if we already have a trigger collider
-        foreach (Collider col in colliders)
+        if (playerInventory == null)
         {
-            if (col.isTrigger)
-            {
-                hasTrigger = true;
-                Debug.Log($"Found trigger collider: {col.GetType().Name}");
-                break;
-            }
-        }
-
-        // If no trigger collider exists, create one
-        if (!hasTrigger)
-        {
-            SphereCollider triggerCollider = gameObject.AddComponent<SphereCollider>();
-            triggerCollider.isTrigger = true;
-            triggerCollider.radius = 1.5f; // Adjust size as needed
-            Debug.Log("Created new trigger collider for pickup detection");
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+                playerInventory = player.GetComponent<InventorySystem>();
         }
     }
 
     private void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        // Only show/pick if this is the current target
+        if (this == activePickup)
         {
-            if (playerInventory != null && itemData != null)
-            {
-                Item item = new Item(itemData);
-                if (playerInventory.AddItem(item, 1))
-                {
-                    Debug.Log($"Picked up {itemData.itemName}");
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    Debug.Log("Inventory full!");
-                }
-            }
-        }
-    }
-
-    // This gets called when something enters THIS object's trigger collider
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log($"Something entered pickup area: {other.name} with tag: {other.tag}");
-
-        if (other.CompareTag("Player"))
-        {
-            isPlayerNearby = true;
-            playerInventory = other.GetComponent<InventorySystem>();
-
-            if (playerInventory == null)
-            {
-                Debug.LogError("Player does not have InventorySystem component!");
-            }
-
             if (showPickupPrompt && itemData != null)
+                Debug.Log($"Looking near {itemData.itemName}: {pickupText}");
+
+            if (Input.GetKeyDown(KeyCode.E))
+                TryPickup();
+        }
+    }
+
+    private void TryPickup()
+    {
+        if (playerInventory != null && itemData != null)
+        {
+            Item item = new Item(itemData);
+            if (playerInventory.AddItem(item, 1))
             {
-                Debug.Log($"Near {itemData.itemName}: {pickupText}");
+                Debug.Log($"Picked up {itemData.itemName}");
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Inventory full!");
             }
         }
     }
 
-    // This gets called when something exits THIS object's trigger collider
-    private void OnTriggerExit(Collider other)
+    // ----------------- Detection -----------------
+    private void LateUpdate()
     {
-        if (other.CompareTag("Player"))
+        if (playerCamera == null) return;
+
+        Vector3 origin = playerCamera.transform.position;
+        Vector3 direction = playerCamera.transform.forward;
+
+        // Collect all colliders in a sphere in front of camera
+        Collider[] hits = Physics.OverlapSphere(origin + direction * pickupRange * 0.5f, pickupRadius);
+
+        ItemPickup closestPickup = null;
+        float closestDot = -1f; // dot product (higher = closer to crosshair)
+
+        foreach (var hit in hits)
         {
-            isPlayerNearby = false;
-            playerInventory = null;
-            Debug.Log("Player left pickup area");
+            ItemPickup pickup = hit.GetComponent<ItemPickup>();
+            if (pickup != null)
+            {
+                Vector3 toItem = (pickup.transform.position - origin).normalized;
+                float dot = Vector3.Dot(direction, toItem); // how aligned with crosshair
+
+                if (dot > closestDot)
+                {
+                    closestDot = dot;
+                    closestPickup = pickup;
+                }
+            }
         }
+
+        activePickup = closestPickup;
     }
 }
