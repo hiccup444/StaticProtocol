@@ -13,7 +13,12 @@ public class HelmetHandler : MonoBehaviour
     public UnityEngine.UI.Image crackImage; // cracks sprite
     public Sprite[] crackStages; // assign sprites for different damage levels
 
+    [Header("Collision Damage Settings")]
+    public float minImpactVelocity = 5f; // minimum speed to take damage
+    public float damageCooldown = 1f;    // prevent multiple hits in quick succession
+
     private bool isBroken = false;
+    private float lastDamageTime = -999f;
 
     void Start()
     {
@@ -23,17 +28,34 @@ public class HelmetHandler : MonoBehaviour
 
     void Update()
     {
+        // Debug: press H to test damage
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage();
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Ignore if helmet is already broken
+        if (isBroken) return;
+
+        // Get impact velocity
+        float impactSpeed = collision.relativeVelocity.magnitude;
+
+        if (impactSpeed >= minImpactVelocity && Time.time - lastDamageTime >= damageCooldown)
+        {
+            Debug.Log($"Helmet took damage from collision with {collision.gameObject.name}, speed: {impactSpeed}");
+            TakeDamage();
+            lastDamageTime = Time.time;
+        }
+    }
+
     public void TakeDamage()
     {
         if (isBroken) return;
-        int damage = 1;
-        currentDurability -= damage;
+
+        currentDurability -= 1;
         if (currentDurability <= 0)
         {
             currentDurability = 0;
@@ -56,7 +78,5 @@ public class HelmetHandler : MonoBehaviour
     {
         isBroken = true;
         Debug.Log("Helmet shattered! Oxygen leak begins.");
-        // TODO: Tell the OxygenSystem to start draining
     }
 }
-
