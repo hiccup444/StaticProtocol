@@ -10,10 +10,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AD382D5C-B559-F15F-8AED-9140A045B5E8}</ProjectGuid>
+    <ProjectGuid>{D42ECF39-CF37-3C50-6B1A-693DD328F4E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+    <AssemblyName>Siccity.GLTFUtility</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -50,7 +50,7 @@
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.22</UnityProjectGeneratorVersion>
     <UnityProjectGeneratorStyle>Legacy</UnityProjectGeneratorStyle>
-    <UnityProjectType>GamePlugins:3</UnityProjectType>
+    <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2022.3.45f1</UnityVersion>
   </PropertyGroup>
@@ -60,44 +60,119 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Components\CSGModelExported.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\Utility\ComponentUpgrader.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Foundation\Runtime\CSGOperationType.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Components\Legacy\LegacyGeneratedMeshContainer.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Foundation\Runtime\VertexChannelFlags.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\CSGModel.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Legacy\Runtime\ControlMesh.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Components\InternalFlags.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\CSGBrush.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Legacy\Runtime\CSGPlane.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\Utility\HierarchyItem.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Legacy\Runtime\TexGen.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Foundation\Runtime\SurfaceLayers.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\Utility\CompareShape.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Components\GeneratedMeshes.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Components\GeneratedMeshInstance.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\Utility\ChildNodeData.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Foundation\Runtime\GeneratedMeshContents.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Foundation\Runtime\MeshQuery.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Utility\MeshUtility.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\Utility\GeometryWireframe.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\Utility\ParentNodeData.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\Utility\CompareTransformation.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\CSGOperation.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Legacy\Runtime\Shape.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Legacy\Runtime\Surface.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Managers\CSGSceneManagerRedirector.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Attributes\EnumAsFlagsAttribute.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\CSGNode.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Managers\CSGSceneManagerInterface.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Components\Shape\MathConstants.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Utility\GameObjectExtensions.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Legacy\Runtime\TexGenFlags.cs" />
-    <Compile Include="Assets\Plugins\RealtimeCSG\API\Foundation\Runtime\GeneratedMeshDescription.cs" />
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFScene.cs">
+      <Link>Scripts\Spec\GLTFScene.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Extensions\KHR_texture_transform.cs">
+      <Link>Scripts\Extensions\KHR_texture_transform.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Converters\EnumConverter.cs">
+      <Link>Scripts\Converters\EnumConverter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Converters\ColorConverter.cs">
+      <Link>Scripts\Converters\ColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Converters\Matrix4x4Converter.cs">
+      <Link>Scripts\Converters\Matrix4x4Converter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Enums.cs">
+      <Link>Scripts\Enums.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Extensions.cs">
+      <Link>Scripts\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Converters\QuaternionConverter.cs">
+      <Link>Scripts\Converters\QuaternionConverter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Converters\TranslationConverter.cs">
+      <Link>Scripts\Converters\TranslationConverter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFObject.cs">
+      <Link>Scripts\Spec\GLTFObject.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Settings\ShaderSettings.cs">
+      <Link>Scripts\Settings\ShaderSettings.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFSkin.cs">
+      <Link>Scripts\Spec\GLTFSkin.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFProperty.cs">
+      <Link>Scripts\Spec\GLTFProperty.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFAnimation.cs">
+      <Link>Scripts\Spec\GLTFAnimation.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Settings\ImportSettings.cs">
+      <Link>Scripts\Settings\ImportSettings.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Importer.cs">
+      <Link>Scripts\Importer.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFAccessor.cs">
+      <Link>Scripts\Spec\GLTFAccessor.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFMaterial.cs">
+      <Link>Scripts\Spec\GLTFMaterial.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFAsset.cs">
+      <Link>Scripts\Spec\GLTFAsset.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Settings\AnimationSettings.cs">
+      <Link>Scripts\Settings\AnimationSettings.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFBufferView.cs">
+      <Link>Scripts\Spec\GLTFBufferView.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Converters\Vector3Converter.cs">
+      <Link>Scripts\Converters\Vector3Converter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFNode.cs">
+      <Link>Scripts\Spec\GLTFNode.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFMesh.cs">
+      <Link>Scripts\Spec\GLTFMesh.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFTexture.cs">
+      <Link>Scripts\Spec\GLTFTexture.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Converters\Vector2Converter.cs">
+      <Link>Scripts\Converters\Vector2Converter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFPrimitive.cs">
+      <Link>Scripts\Spec\GLTFPrimitive.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Exporter.cs">
+      <Link>Scripts\Exporter.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFBuffer.cs">
+      <Link>Scripts\Spec\GLTFBuffer.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFImage.cs">
+      <Link>Scripts\Spec\GLTFImage.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\Spec\GLTFCamera.cs">
+      <Link>Scripts\Spec\GLTFCamera.cs</Link>
+    </Compile>
+    <Compile Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Scripts\BufferedBinaryReader.cs">
+      <Link>Scripts\BufferedBinaryReader.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Plugins\RealtimeCSG\License.txt" />
-    <None Include="Assets\Plugins\RealtimeCSG\Release-notes.txt" />
+    <None Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Materials\Built-in\Standard-Metallic-Blend.shader">
+      <Link>Materials\Built-in\Standard-Metallic-Blend.shader</Link>
+    </None>
+    <None Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Materials\Built-in\Standard-Specular.shader">
+      <Link>Materials\Built-in\Standard-Specular.shader</Link>
+    </None>
+    <None Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Materials\Built-in\Standard-Metallic.shader">
+      <Link>Materials\Built-in\Standard-Metallic.shader</Link>
+    </None>
+    <None Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\Materials\Built-in\Standard-Specular-Blend.shader">
+      <Link>Materials\Built-in\Standard-Specular-Blend.shader</Link>
+    </None>
+    <None Include="C:\Users\Rainc\Downloads\GLTFUtility-0.7\GLTFUtility-0.7\GLTFUtility.asmdef">
+      <Link>GLTFUtility.asmdef</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -432,8 +507,40 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.YamlDotNet">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.9.2\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.9.2\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4netPlastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.9.2\Lib\Editor\log4netPlastic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.IonicZip">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="unityplastic">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.9.2\Lib\Editor\unityplastic.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
@@ -442,6 +549,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.TextureAssets">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -932,176 +1043,16 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.45f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualEffectGraph.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Burst.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualEffectGraph.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Siccity.GLTFUtility.Editor.csproj">
-      <Project>{8FBFD17F-0508-1AD6-68FC-09659D596A13}</Project>
-      <Name>Siccity.GLTFUtility.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Siccity.GLTFUtility.csproj">
-      <Project>{D42ECF39-CF37-3C50-6B1A-693DD328F4E6}</Project>
-      <Name>Siccity.GLTFUtility</Name>
-    </ProjectReference>
     <ProjectReference Include="Dracodec.csproj">
       <Project>{17CC5C5C-B71E-7D0B-7F45-88041FC626AC}</Project>
       <Name>Dracodec</Name>

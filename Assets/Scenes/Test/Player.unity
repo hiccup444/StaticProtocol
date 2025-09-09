@@ -613,9 +613,7 @@ GameObject:
   - component: {fileID: 1545037848}
   - component: {fileID: 1545037847}
   - component: {fileID: 1545037849}
-  - component: {fileID: 1545037850}
   - component: {fileID: 1545037852}
-  - component: {fileID: 1545037853}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -782,33 +780,6 @@ MonoBehaviour:
   currentOxygen: 0
   helmetHandler: {fileID: 1833802854}
   inSpace: 1
---- !u!54 &1545037850
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545037843}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1545037852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,29 +795,6 @@ MonoBehaviour:
   helmetHandler: {fileID: 1833802854}
   minImpactVelocity: 5
   damageCooldown: 1
---- !u!136 &1545037853
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545037843}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.97
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1641976666
 GameObject:
   m_ObjectHideFlags: 0
