@@ -614,6 +614,9 @@ GameObject:
   - component: {fileID: 1545037847}
   - component: {fileID: 1545037849}
   - component: {fileID: 1545037852}
+  - component: {fileID: 1545037853}
+  - component: {fileID: 1545037855}
+  - component: {fileID: 1545037854}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -795,6 +798,46 @@ MonoBehaviour:
   helmetHandler: {fileID: 1833802854}
   minImpactVelocity: 5
   damageCooldown: 1
+--- !u!114 &1545037853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545037843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840b516cb856dfa4ea8fad5a7b494149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+--- !u!114 &1545037854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545037843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ac3991a77881643b7ea6f5f292a490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spectatePoints: []
+--- !u!114 &1545037855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545037843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3794933e1eab784a80446629f61edfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 694278955}
+  spectatorCamera: {fileID: 0}
 --- !u!1 &1641976666
 GameObject:
   m_ObjectHideFlags: 0

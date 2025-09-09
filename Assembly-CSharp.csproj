@@ -66,13 +66,16 @@
     <Compile Include="Assets\Scripts\ItemData.cs" />
     <Compile Include="Assets\Scripts\ItemType.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
+    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\InventorySystem.cs" />
+    <Compile Include="Assets\Scripts\PlayerDeathHandler.cs" />
     <Compile Include="Assets\Scripts\HelmetDamageRelay.cs" />
     <Compile Include="Assets\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\Oxygen.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\SpectatorCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -436,10 +439,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1095,18 +1094,6 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{AD382D5C-B559-F15F-8AED-9140A045B5E8}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="Siccity.GLTFUtility.Editor.csproj">
-      <Project>{8FBFD17F-0508-1AD6-68FC-09659D596A13}</Project>
-      <Name>Siccity.GLTFUtility.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Siccity.GLTFUtility.csproj">
-      <Project>{D42ECF39-CF37-3C50-6B1A-693DD328F4E6}</Project>
-      <Name>Siccity.GLTFUtility</Name>
-    </ProjectReference>
-    <ProjectReference Include="Dracodec.csproj">
-      <Project>{17CC5C5C-B71E-7D0B-7F45-88041FC626AC}</Project>
-      <Name>Dracodec</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
