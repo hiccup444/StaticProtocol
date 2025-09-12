@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpectatorCamera : MonoBehaviour
@@ -8,17 +6,55 @@ public class SpectatorCamera : MonoBehaviour
     private int currentIndex = 0;
 
     private Camera cam;
+    private AudioListener listener;
+    private Camera playerCamera;
+    private AudioListener playerListener;
 
-    void Start()
+    void Awake()
     {
+        // Get the spectator camera and listener
         cam = GetComponent<Camera>();
-        cam.enabled = false; // start disabled
+        listener = GetComponent<AudioListener>();
+
+        if (cam == null)
+            Debug.LogWarning("SpectatorCamera: No Camera found on this object.");
+
+        if (listener == null)
+        {
+            listener = gameObject.AddComponent<AudioListener>();
+        }
+
+        cam.enabled = false;
+        listener.enabled = false;
+
+        // Find the main player camera
+        playerCamera = Camera.main;
+        if (playerCamera != null)
+            playerListener = playerCamera.GetComponent<AudioListener>();
     }
 
     public void Activate()
     {
         cam.enabled = true;
+        listener.enabled = true;
+
+        // Disable player camera listener
+        if (playerListener != null)
+            playerListener.enabled = false;
+
         Debug.Log("Spectator mode activated.");
+    }
+
+    public void Deactivate()
+    {
+        cam.enabled = false;
+        listener.enabled = false;
+
+        // Re-enable player camera listener
+        if (playerListener != null)
+            playerListener.enabled = true;
+
+        Debug.Log("Spectator mode deactivated.");
     }
 
     void Update()

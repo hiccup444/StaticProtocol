@@ -24,4 +24,7 @@ public class ItemData : ScriptableObject
     [Header("Consumable Effects")]
     [Tooltip("Amount of oxygen this item restores when used")]
     public float oxygenRestore = 0f;
+
+    [Header("Economy")]
+    public int sellValue = 0; // how much money it's worth
 }

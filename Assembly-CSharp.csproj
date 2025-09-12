@@ -63,12 +63,15 @@
     <Compile Include="Assets\Scripts\HelmetHandler.cs" />
     <Compile Include="Assets\Scripts\OxygenBarUI.cs" />
     <Compile Include="Assets\Scripts\FlickerLight.cs" />
+    <Compile Include="Assets\Scripts\PlayerWallet.cs" />
     <Compile Include="Assets\Scripts\ItemData.cs" />
     <Compile Include="Assets\Scripts\ItemType.cs" />
     <Compile Include="Assets\Scripts\ItemSpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Turret.cs" />
     <Compile Include="Assets\Scripts\InventorySystem.cs" />
+    <Compile Include="Assets\Scripts\TurretBullet.cs" />
     <Compile Include="Assets\Scripts\PlayerDeathHandler.cs" />
     <Compile Include="Assets\Scripts\HelmetDamageRelay.cs" />
     <Compile Include="Assets\Scripts\ItemPickup.cs" />
@@ -1045,12 +1048,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
