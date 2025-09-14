@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-    private bool isDead = false; // ✅ add this
+    private bool isDead = false;
 
     // Event for when the player dies
     public event Action OnDeath;
@@ -19,11 +19,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (isDead) return; // don’t take damage after death
+        if (isDead) return;
 
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0);
-
         Debug.Log($"{gameObject.name} took {amount} damage. Health: {currentHealth}");
 
         if (currentHealth <= 0)
@@ -36,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return; // safety check
         isDead = true;
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerObj.SetActive(false);
 
         Debug.Log($"{gameObject.name} died!");
         OnDeath?.Invoke(); // notify others

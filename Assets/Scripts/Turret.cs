@@ -6,9 +6,9 @@ public class Turret : MonoBehaviour
 {
     [Header("Turret Settings")]
     public float range = 20f;            // detection radius
-    public float fireRate = 1f;
+    public float fireRate = 5f;
     public float bulletForce = 25f;
-    public float fieldOfView = 90f;      // cone angle in degrees
+    public float fieldOfView = 180f;      // cone angle in degrees
     public float rotationSpeed = 5f;
 
     [Header("Bullet Settings")]
