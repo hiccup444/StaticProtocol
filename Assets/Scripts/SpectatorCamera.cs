@@ -81,3 +81,4 @@ public class SpectatorCamera : MonoBehaviour
         transform.rotation = spectatePoints[currentIndex].rotation;
     }
 }
+    

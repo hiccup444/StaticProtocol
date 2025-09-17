@@ -134,16 +134,7 @@ public class Item
                 }
                 break;
 
-            case "emergency oxygen":
-                if (playerOxygen != null)
-                {
-                    // Emergency refill - restores to full
-                    float neededOxygen = playerOxygen.maxOxygen - playerOxygen.currentOxygen;
-                    playerOxygen.RefillOxygen(neededOxygen);
-                    Debug.Log("Emergency oxygen used - oxygen fully restored!");
-                    wasUsed = true;
-                }
-                break;
+         
 
             default:
                 Debug.Log($"No specific use behavior for {itemName}");

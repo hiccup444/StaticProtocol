@@ -18,6 +18,7 @@ public class InventorySystem : MonoBehaviour
     private Item[] inventory;
     private int[] itemCounts;
     private Oxygen playerOxygen;
+    HelmetHandler helmetHandler;
 
     // Properties
     public int InventorySize => inventorySize;
@@ -31,6 +32,7 @@ public class InventorySystem : MonoBehaviour
         InitializeInventory();
 
         playerOxygen = GetComponent<Oxygen>();
+        helmetHandler = GetComponentInChildren<HelmetHandler>();
     }
 
     
@@ -136,6 +138,14 @@ public class InventorySystem : MonoBehaviour
 
             case 1: // Oxygen Tank
                 playerOxygen.currentOxygen = playerOxygen.currentOxygen + 25;
+                break;
+
+            case 2: //Glass Sealant
+                if (playerOxygen != null)
+                {
+                    helmetHandler.RepairHelmet(1);
+                    Debug.Log("Glass Sealant used helmet repaired!");
+                }
                 break;
 
             default:

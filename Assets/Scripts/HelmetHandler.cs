@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,6 @@ public class HelmetHandler : MonoBehaviour
     public int currentDurability;
 
     [Header("Helmet Overlay UI")]
-    public CanvasGroup helmetOverlay; // UI canvas over camera
     public UnityEngine.UI.Image crackImage; // cracks sprite
     public Sprite[] crackStages; // assign sprites for different damage levels
 
@@ -28,11 +27,7 @@ public class HelmetHandler : MonoBehaviour
 
     void Update()
     {
-        // Debug: press H to test damage
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage();
-        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -73,6 +68,16 @@ public class HelmetHandler : MonoBehaviour
         int stage = Mathf.FloorToInt(damagePercent * (crackStages.Length - 1));
         crackImage.sprite = crackStages[stage];
     }
+
+    public void RepairHelmet(int amount = 1)
+    {
+        if (isBroken) return; // maybe prevent repair after shatter
+
+        currentDurability = Mathf.Min(currentDurability + amount, maxDurability);
+        UpdateOverlay();
+        Debug.Log($"Helmet repaired by {amount}, durability: {currentDurability}/{maxDurability}");
+    }
+
 
     void BreakHelmet()
     {

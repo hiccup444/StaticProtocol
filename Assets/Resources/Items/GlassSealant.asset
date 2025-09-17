@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e7f86487d0207949b6ca35551fe0f6a, type: 3}
-  m_Name: OxygenCanister
+  m_Name: GlassSealant
   m_EditorClassIdentifier: 
-  id: 1
-  itemName: Oxygen Canister
-  description: Restores your oxygen supply when used.
-  icon: {fileID: 21300000, guid: 324dcc05b80c2994583ad79cb11776de, type: 3}
-  prefab: {fileID: 5400888882344820561, guid: 00a6df3fdc9f78544a0b6ff9f309fe6b, type: 3}
+  id: 2
+  itemName: Glass Sealant
+  description: "aerosol glass sealant\r"
+  icon: {fileID: 21300000, guid: 315cefdc94664ed4b9f626fd72fb6e5d, type: 3}
+  prefab: {fileID: 7856088685271640775, guid: a0d145abfdde2ec45b02bc9cf31763f5, type: 3}
   itemType: 2
-  maxStackSize: 2
-  weight: 5
-  value: 500
+  maxStackSize: 3
+  weight: 2
+  value: 250
   isConsumable: 1
   isEquippable: 0
   oxygenRestore: 0

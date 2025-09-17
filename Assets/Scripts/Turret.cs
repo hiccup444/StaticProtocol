@@ -111,8 +111,6 @@ public class Turret : MonoBehaviour
             }
             else
             {
-                // Something is blocking the view
-                Debug.Log("Turret view blocked by: " + hit.collider.name);
                 return false;
             }
         }
