@@ -6,7 +6,7 @@ public class HelmetDamageRelay : MonoBehaviour
     public HelmetHandler helmetHandler; // assign your HelmetHandler (UI overlay)
 
     [Header("Settings")]
-    public float minImpactVelocity = 5f;
+    public float minImpactVelocity = 10f;
     public float damageCooldown = 0.5f;
 
     private CharacterController controller;

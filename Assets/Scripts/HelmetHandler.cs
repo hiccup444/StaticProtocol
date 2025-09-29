@@ -16,7 +16,7 @@ public class HelmetHandler : MonoBehaviour
     public float minImpactVelocity = 5f; // minimum speed to take damage
     public float damageCooldown = 1f;    // prevent multiple hits in quick succession
 
-    private bool isBroken = false;
+    public bool isBroken = false;
     private float lastDamageTime = -999f;
 
     void Start()
@@ -71,7 +71,7 @@ public class HelmetHandler : MonoBehaviour
 
     public void RepairHelmet(int amount = 1)
     {
-        if (isBroken) return; // maybe prevent repair after shatter
+        if (isBroken) return;
 
         currentDurability = Mathf.Min(currentDurability + amount, maxDurability);
         UpdateOverlay();

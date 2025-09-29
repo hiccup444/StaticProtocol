@@ -141,11 +141,8 @@ public class InventorySystem : MonoBehaviour
                 break;
 
             case 2: //Glass Sealant
-                if (playerOxygen != null)
-                {
-                    helmetHandler.RepairHelmet(1);
-                    Debug.Log("Glass Sealant used helmet repaired!");
-                }
+                helmetHandler.RepairHelmet(1);
+                Debug.Log("Glass Sealant used helmet repaired!");
                 break;
 
             default:

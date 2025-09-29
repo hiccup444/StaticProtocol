@@ -1424,15 +1424,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDurability: 3
   currentDurability: 0
-  helmetOverlay: {fileID: 0}
   crackImage: {fileID: 1833802852}
   crackStages:
   - {fileID: 21300000, guid: 2b0bcdc50e6fc2549af815178af19656, type: 3}
   - {fileID: 21300000, guid: 79c60cec1fa50764dbe630ba0e60d1f5, type: 3}
   - {fileID: 21300000, guid: 08b5883c11fe3fa40b0a6907dac7a296, type: 3}
   - {fileID: 21300000, guid: 79463c517550eca4d83a0d5451855d37, type: 3}
-  minImpactVelocity: 5
+  minImpactVelocity: 10
   damageCooldown: 1
+  isBroken: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
