@@ -10,13 +10,13 @@ public class ItemPickup : MonoBehaviour
     public string pickupText = "Press E to pickup";
 
     private InventorySystem playerInventory;
+    private AudioSource ambientSource;
 
     private static ItemPickup activePickup;
     private static Camera playerCamera;
 
-    // Settings
-    public static float pickupRange = 5f;       // How far player can pick up
-    public static float pickupRadius = 1.0f;    // Radius around crosshair
+    public static float pickupRange = 5f;
+    public static float pickupRadius = 1.0f;
 
     private void Start()
     {
@@ -34,11 +34,20 @@ public class ItemPickup : MonoBehaviour
             if (player != null)
                 playerInventory = player.GetComponent<InventorySystem>();
         }
+
+        // Setup ambient sound for items in the world
+        if (itemData != null && itemData.ambientSoundWhenNotHeld != null)
+        {
+            ambientSource = ItemAudioManager.Instance.SetupAmbientSource(
+                gameObject, 
+                itemData.ambientSoundWhenNotHeld
+            );
+            ItemAudioManager.Instance.PlayAmbient(ambientSource);
+        }
     }
 
     private void Update()
     {
-        // Only show/pick if this is the current target
         if (this == activePickup)
         {
             if (showPickupPrompt && itemData != null)
@@ -54,9 +63,20 @@ public class ItemPickup : MonoBehaviour
         if (playerInventory != null && itemData != null)
         {
             Item item = new Item(itemData);
+            
+            // Play pickup sound at item's position
+            ItemAudioManager.Instance.PlayPickupSound(item.pickupSound, transform.position);
+            
             if (playerInventory.AddItem(item, 1))
             {
                 Debug.Log($"Picked up {itemData.itemName}");
+                
+                // Stop ambient sound before destroying
+                if (ambientSource != null)
+                {
+                    ItemAudioManager.Instance.StopAmbient(ambientSource);
+                }
+                
                 Destroy(gameObject);
             }
             else
@@ -66,7 +86,6 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
-    // ----------------- Detection -----------------
     private void LateUpdate()
     {
         if (playerCamera == null) return;
@@ -74,11 +93,10 @@ public class ItemPickup : MonoBehaviour
         Vector3 origin = playerCamera.transform.position;
         Vector3 direction = playerCamera.transform.forward;
 
-        // Collect all colliders in a sphere in front of camera
         Collider[] hits = Physics.OverlapSphere(origin + direction * pickupRange * 0.5f, pickupRadius);
 
         ItemPickup closestPickup = null;
-        float closestDot = -1f; // dot product (higher = closer to crosshair)
+        float closestDot = -1f;
 
         foreach (var hit in hits)
         {
@@ -86,7 +104,7 @@ public class ItemPickup : MonoBehaviour
             if (pickup != null)
             {
                 Vector3 toItem = (pickup.transform.position - origin).normalized;
-                float dot = Vector3.Dot(direction, toItem); // how aligned with crosshair
+                float dot = Vector3.Dot(direction, toItem);
 
                 if (dot > closestDot)
                 {
@@ -97,5 +115,19 @@ public class ItemPickup : MonoBehaviour
         }
 
         activePickup = closestPickup;
+    }
+
+    public ItemData GetItemData()
+    {
+        return itemData;
+    }
+
+    private void OnDestroy()
+    {
+        // Clean up ambient sound
+        if (ambientSource != null)
+        {
+            ItemAudioManager.Instance.StopAmbient(ambientSource);
+        }
     }
 }
