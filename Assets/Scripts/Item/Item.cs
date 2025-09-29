@@ -21,6 +21,12 @@ public class Item
     [Header("Consumable Effects")]
     public float oxygenRestore = 0f;
 
+    [Header("Audio")]
+    public AudioClip dropSound;
+    public AudioClip pickupSound;
+    public AudioClip ambientSoundWhenHeld;
+    public AudioClip ambientSoundWhenNotHeld;
+
     public Item()
     {
         id = -1;
@@ -35,6 +41,10 @@ public class Item
         isConsumable = false;
         isEquippable = false;
         oxygenRestore = 0f;
+        dropSound = null;
+        pickupSound = null;
+        ambientSoundWhenHeld = null;
+        ambientSoundWhenNotHeld = null;
     }
 
     public Item(ItemData data)
@@ -51,6 +61,10 @@ public class Item
         isConsumable = data.isConsumable;
         isEquippable = data.isEquippable;
         oxygenRestore = data.oxygenRestore;
+        dropSound = data.dropSound;
+        pickupSound = data.pickupSound;
+        ambientSoundWhenHeld = data.ambientSoundWhenHeld;
+        ambientSoundWhenNotHeld = data.ambientSoundWhenNotHeld;
     }
 
     public bool IsEmpty()
@@ -73,7 +87,11 @@ public class Item
             value = this.value,
             isConsumable = this.isConsumable,
             isEquippable = this.isEquippable,
-            oxygenRestore = this.oxygenRestore
+            oxygenRestore = this.oxygenRestore,
+            dropSound = this.dropSound,
+            pickupSound = this.pickupSound,
+            ambientSoundWhenHeld = this.ambientSoundWhenHeld,
+            ambientSoundWhenNotHeld = this.ambientSoundWhenNotHeld
         };
     }
 
@@ -134,11 +152,8 @@ public class Item
                 }
                 break;
 
-         
-
             default:
                 Debug.Log($"No specific use behavior for {itemName}");
-                // Still return true if it had generic effects from oxygenRestore
                 break;
         }
 

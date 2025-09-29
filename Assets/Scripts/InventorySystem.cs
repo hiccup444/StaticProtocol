@@ -13,6 +13,7 @@ public class InventorySystem : MonoBehaviour
     public UnityEvent<int, Item> OnItemAdded;
     public UnityEvent<int, Item> OnItemRemoved;
     public UnityEvent<int, Item> OnItemUsed;
+    public UnityEvent<int, Item> OnItemDropped;
     
     // Inventory data
     private Item[] inventory;
@@ -30,18 +31,15 @@ public class InventorySystem : MonoBehaviour
     private void Awake()
     {
         InitializeInventory();
-
         playerOxygen = GetComponent<Oxygen>();
         helmetHandler = GetComponentInChildren<HelmetHandler>();
     }
 
-    
     private void InitializeInventory()
     {
         inventory = new Item[inventorySize];
         itemCounts = new int[inventorySize];
         
-        // Initialize all slots as empty
         for (int i = 0; i < inventorySize; i++)
         {
             inventory[i] = new Item();
@@ -87,7 +85,7 @@ public class InventorySystem : MonoBehaviour
             }
         }
         
-        return count <= 0; // Return true if all items were added
+        return count <= 0;
     }
     
     public bool RemoveItem(int slotIndex, int count = 1)
@@ -113,13 +111,40 @@ public class InventorySystem : MonoBehaviour
         return true;
     }
 
+    // New method specifically for dropping items (to be called from PlayerController)
+    public bool DropItem(int slotIndex, int count = 1)
+    {
+        if (slotIndex < 0 || slotIndex >= inventorySize)
+            return false;
+            
+        if (inventory[slotIndex].IsEmpty())
+            return false;
+        
+        Item droppedItem = inventory[slotIndex];
+        int availableCount = itemCounts[slotIndex];
+        int amountToRemove = Mathf.Min(count, availableCount);
+        
+        itemCounts[slotIndex] -= amountToRemove;
+        
+        if (itemCounts[slotIndex] <= 0)
+        {
+            inventory[slotIndex] = new Item();
+            itemCounts[slotIndex] = 0;
+        }
+        
+        // Note: Drop sound is played in PlayerController at the actual drop position
+        OnItemDropped?.Invoke(slotIndex, droppedItem);
+        OnItemRemoved?.Invoke(slotIndex, inventory[slotIndex]);
+        
+        return true;
+    }
+
     public bool UseItem(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= inventorySize)
             return false;
 
         Item item = inventory[slotIndex];
-
 
         if (item.IsEmpty())
             return false;
@@ -140,7 +165,7 @@ public class InventorySystem : MonoBehaviour
                 playerOxygen.currentOxygen = playerOxygen.currentOxygen + 25;
                 break;
 
-            case 2: //Glass Sealant
+            case 2: // Glass Sealant
                 helmetHandler.RepairHelmet(1);
                 Debug.Log("Glass Sealant used helmet repaired!");
                 break;
@@ -150,31 +175,11 @@ public class InventorySystem : MonoBehaviour
                 break;
         }
 
-        // Trigger the event
         OnItemUsed?.Invoke(slotIndex, item);
-
-        // Remove one from stack
         RemoveItem(slotIndex, 1);
 
         Debug.Log($"Successfully used {item.itemName}");
         return true;
-    }
-
-    // Example helper methods
-    private void HealPlayer(int amount)
-    {
-        // Replace this with your player's health system
-        Debug.Log($"Healing player for {amount} HP!");
-    }
-
-    private void EquipWeapon(Item weapon)
-    {
-        Debug.Log($"Equipping {weapon.itemName}!");
-    }
-
-    private void CraftWoodItem()
-    {
-        Debug.Log("Crafting with wood!");
     }
 
     public void SelectSlot(int slotIndex)
@@ -257,11 +262,9 @@ public class InventorySystem : MonoBehaviour
         OnSlotChanged?.Invoke(selectedSlot);
     }
     
-    // Debug method to add test items
     [ContextMenu("Add Test Items")]
     public void AddTestItems()
     {
-        // Create some test items
         Item testItem1 = new Item
         {
             id = 1,

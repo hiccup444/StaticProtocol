@@ -26,5 +26,11 @@ public class ItemData : ScriptableObject
     public float oxygenRestore = 0f;
 
     [Header("Economy")]
-    public int sellValue = 0; // how much money it's worth
+    public int sellValue = 0;
+
+    [Header("Audio")]
+    public AudioClip dropSound;
+    public AudioClip pickupSound;
+    public AudioClip ambientSoundWhenHeld;
+    public AudioClip ambientSoundWhenNotHeld;
 }

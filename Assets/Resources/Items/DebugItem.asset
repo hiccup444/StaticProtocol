@@ -21,6 +21,11 @@ MonoBehaviour:
   maxStackSize: 1
   weight: 1
   value: 1
-  isConsumable: 1
+  isConsumable: 0
   isEquippable: 0
   oxygenRestore: 0
+  sellValue: 0
+  dropSound: {fileID: 8300000, guid: 17d3f964227fe2e45ad0d3c45c718181, type: 3}
+  pickupSound: {fileID: 0}
+  ambientSoundWhenHeld: {fileID: 0}
+  ambientSoundWhenNotHeld: {fileID: 0}
